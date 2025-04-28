@@ -7,13 +7,13 @@
 
 RF24 radio (8,9);//CE,CSN
 
-const byte address[6] = "00001";//Unique 5 letter string, must be same on boths sides
+const byte address[6] = "00001";
 
-const int solenoid = 4;//input and output pins
+const int solenoid = 4;
 const int plg = 5;
 const int irq = 2;
 
-bool plunge;//Place to store values transmitted
+bool plunge;
 int sole;
 
 unsigned long previousmillis;
@@ -28,13 +28,13 @@ void setup() {
   pinMode(irq, INPUT);
   pinMode(solenoid, OUTPUT);
   pinMode(plg, INPUT_PULLUP);
-  retry:    //label to jump to for a reset
+  retry:    
   radio.begin();
   radio.openWritingPipe(address);
-  radio.setRadiation(RF24_PA_MIN, RF24_2MBPS);//Power Amplifier Level, Data Rate, (optional)LNA true/false
+  radio.setRadiation(RF24_PA_MIN, RF24_2MBPS);
   radio.stopListening();
-  radio.enableDynamicPayloads();//Required for AckPayload, dynamically sizes payloads
-  radio.enableAckPayload();//Allows 1(32 bytes) payload to be attached to acknowledgement packet
+  radio.enableDynamicPayloads();
+  radio.enableAckPayload();
   
   if(radio.isChipConnected() == false){
     Serial.println("Chip Not Found");
@@ -46,7 +46,7 @@ void setup() {
 
 void loop() {
   wdt_reset();
-  plunge = digitalRead(plg);//Setup for the data that is being setup and recieved
+  plunge = digitalRead(plg);
   sole = "";
   unsigned long currentmillis = millis();
   previousmillis = currentmillis;
@@ -112,10 +112,10 @@ void reset(){
   retry:
   radio.begin();
   radio.openWritingPipe(address);
-  radio.setRadiation(RF24_PA_MIN, RF24_2MBPS);//Power Amplifier Level, Data Rate, (optional)LNA true/false
+  radio.setRadiation(RF24_PA_MIN, RF24_2MBPS);
   radio.stopListening();
-  radio.enableDynamicPayloads();//Required for AckPayload, dynamically sizes payloads
-  radio.enableAckPayload();//Allows 1(32 bytes) payload to be attached to acknowledgement packet
+  radio.enableDynamicPayloads();
+  radio.enableAckPayload();
   if(!radio.isChipConnected() || radio.getDataRate() != RF24_2MBPS || radio.getPALevel() != RF24_PA_MIN){
     Serial.println("Settings Mismatch or Chip Not Found");
     goto retry;
