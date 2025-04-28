@@ -14,8 +14,6 @@ void setup() {
 
 void loop() {
   pressValue = analogRead(press);
-  pressValue = constrain(pressValue, pressMin, pressMax);
-  pressValue = map(pressValue, 99, 926, 0, 255);
   Serial.println(pressValue);
   analogWrite(pressOut, pressValue);
   delay(100);
