@@ -1,3 +1,5 @@
+//This side goes on a gas unit for control over a solenoid from meter and plunger input to meter
+
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
