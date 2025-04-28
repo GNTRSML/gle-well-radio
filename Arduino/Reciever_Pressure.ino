@@ -1,3 +1,5 @@
+// Reciever end of a system using the Adafruit MCP4728 for analog output
+
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
