@@ -1,3 +1,5 @@
+//This is a quick and simple test for analog input from 1-5v sensors
+
 const int press = A5;
 int pressOut = 3;
 int pressValue = 0;
@@ -7,7 +9,7 @@ void setup() {
   Serial.begin(9600);
   pinMode(press, INPUT);
   pinMode(pressOut, OUTPUT);
-  analogReference(EXTERNAL);
+  analogReference(EXTERNAL);//If using external ensure AREF is jumped to a 5v supply, also have a shared ground for the sensor and board to avoid floating input
 }
 
 void loop() {
@@ -16,5 +18,5 @@ void loop() {
   pressValue = map(pressValue, 99, 926, 0, 255);
   Serial.println(pressValue);
   analogWrite(pressOut, pressValue);
-  delay(1);
+  delay(100);
 }
