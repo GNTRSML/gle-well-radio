@@ -1,3 +1,5 @@
+//This can be ignored for now, this is just some unfinished testing for a setup process. May or may not ever be complete by me.
+
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
