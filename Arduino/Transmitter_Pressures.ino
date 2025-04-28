@@ -1,3 +1,5 @@
+//This is technically a test but a couple lines can be added to make functional for real world setup.
+//Transmitter side of a system for wireless transmission of analog inputs
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
