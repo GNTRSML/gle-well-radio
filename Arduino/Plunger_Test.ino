@@ -1,16 +1,19 @@
-const int plgPin = 2;//Sets pin to be referred to as plgPin for easier reference, const sets as read only.
+//Quick test sketch for plunger sensor input
+//Make aboslutely sure that the sensor you are using requires a pullup resistor on the sense wire, all sensors tested with this operated this way but it never applies to all
 
-int ledPin = 13;//Sets pin 13 as ledPin for easy reference which has an onboard led connected to it
+const int plgPin = 2;
+
+int ledPin = 13;
 
 void setup() {
-  pinMode(plgPin, INPUT_PULLUP);//3DSO sensors require pullup resistors
-}                               //this activates the 20kohm resistors on the board chip
+  pinMode(plgPin, INPUT_PULLUP);
+}                               
 
 void loop() {
   digitalRead(plgPin);
     if(digitalRead(plgPin) == LOW){
-    digitalWrite(ledPin, HIGH);   //If the plunger pin is reading a low state
-    }else{                        // it will write a high state to the onboard led,
-      digitalWrite(ledPin, LOW);  //if it is not in a low state, it'll keep the led low
+    digitalWrite(ledPin, HIGH);   
+    }else{                        
+      digitalWrite(ledPin, LOW);  
     }
 }
