@@ -1,4 +1,7 @@
-//This is the side that connects to the meter
+//This is the side that connects to the meter for plunger output to meter and an input from the meter.
+//As a warning this is setup for the meter to output like it would to the solenoid normally, so ensure the voltage coming out of the meter is within 0-5v before it reaches the board
+//Battery voltage can vary greatly what is output from meter and voltage divider could cause voltage to not be high enough for normal digital, therefore it is placed on an analog input.
+
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
