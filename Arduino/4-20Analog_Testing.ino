@@ -1,3 +1,5 @@
+//This is for testing 4-20mA sensors
+//Ensure there is 250 Ohm resistor between input and sensor return
 const int press = A5;
 int pressValue = 0;
 int pressMax = 1023;
